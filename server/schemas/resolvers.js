@@ -3,7 +3,7 @@ const { signToken } = require('../utils/auth')
 
 const resolvers = {
   Query: {
-    user: async (parent, args) => {
+    me: async (parent, args) => {
       return User.findOne(args.id).populate('book')
     },
   },
@@ -22,6 +22,7 @@ const resolvers = {
       parent,
       { bookId, authors, description, title, image, link }
     ) => {
+      return 'test'
       // return await User.findOneAndUpdate(
       //   { _id: user._id },
       //   { $addToSet: { savedBooks: body } },
